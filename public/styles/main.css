@@ -1,0 +1,53 @@
+.cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px;
+    background-color: rgb(249, 248, 248);
+    padding: 32px;
+}
+
+.form{
+    margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-top: 32px;
+    
+}
+
+body{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+
+
+}
+
+input[type=number] {
+    border: 3px solid #555;
+    width: 20%;
+    height: 40px;
+    font-size: larger;
+  }
+
+
+#post{
+    height: 40px;
+    border-radius: 10%;
+    background-color: cornflowerblue;
+    width: 7%;
+  }
+
+  label{
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+  }

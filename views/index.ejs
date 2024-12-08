@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get UV Details</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="form">
+        <form action="/" id="myForm" method="post" class="form">
+            <label for="lattitude">Lattitude</label>
+            <input type="number" id="lattitude" name="lat" value="<%= inputData.lat || '' %>">
+    
+            <label for="longitude">Longitude</label>
+            <input type="number" id="longitude" name="lng" value="<%= inputData.lng || '' %>">
+    
+            <label for="altitude">Altitude</label>
+            <input type="number" id="altitude" name="alt" value="<%= inputData.alt || '' %>">
+    
+            <label for="submit">     </label>
+            <input id="post" type="submit" value="GET DETAILS" formaction="/">
+        </form>
+    </div>
+
+    <% if(locals.data){ %>
+        <h1>Here is the data for your location</h1>
+    <% }else{ %>  
+        <h1>Fill the details and hit the button to get UV related data for your location 👆🏽</h1>
+    <% }; %>
+
+
+    <div class="cards">
+        <% if(locals.data){%>
+        
+
+        <div>
+            <h2>UV related Data</h2>
+            <p>uv : <%=locals.data.result.uv %></p>
+            <p>uv time : <%=data.result.uv_time %></p>
+            <p>uv_max : <%=data.result.uv_max %></p>
+            <p>uv_max_time : <%=data.result.uv_max_time %></p>
+            <p>ozone : <%=data.result.ozone %></p>
+            <p>ozone_time : <%=data.result.ozone_time %></p>
+        </div>
+        <div>
+
+            <h2>Safe Exposure Time</h2>
+
+            <% for(let time in data.result.safe_exposure_time){%>
+                <p><%= time %>: <%=data.result.safe_exposure_time[time]  %></p>
+
+            <% } %>
+        </div>
+        <div>
+            <h2>Sun Info 🌞</h2>
+            <h3>Sun Times 🌞⏳ </h3>
+            <%for( let time in data.result.sun_info.sun_times ){ %>
+                <p><%=time %>: <%=data.result.sun_info.sun_times[time] %></p>
+
+            <% } %>
+
+            <h3>Sun Position 🌞⌖ </h3>
+            <p>azimuth : <%=data.result.sun_info.sun_position.azimuth %></p>
+            <p>altitude : <%=data.result.sun_info.sun_position.altitude %></p>
+        </div>
+
+
+        </article>
+        <% } %>
+
+    </div>
+</body>
+</html>
